@@ -4,19 +4,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../Responsive_Layout/desktopScaffold.dart';
+
 class Contact_screen extends StatelessWidget {
   const Contact_screen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-floatingActionButton: FloatingActionButton(
-  child: Icon(Icons.home_filled,color: Colors.black,),
-  backgroundColor: Colors.amber,
-  onPressed: (){
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHomePage(title: '')));
-  },
-),
+      appBar: AppBar(
+        title: Text("Let's get Connected",style: textTheme.subHeaderStyle,),
+        backgroundColor: Colors.amber,
+      ),
+
       backgroundColor: Colors.white,
       body: Container(
         decoration: BoxDecoration(
