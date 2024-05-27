@@ -2,7 +2,10 @@ import 'package:ali_aqdas/Themes/text_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Screens/Skills_screen.dart';
+import 'Screens/about.dart';
 import 'Screens/contact_screen.dart';
+import 'Screens/project_Screen.dart';
 
 
 void main() {
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'title')
+      home: const MyHomePage(title: '')
       //MyHomePage(title: 'Flutter Portfolio Home Page'),
     );
   }
@@ -101,7 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Flexible(
               flex: 15,
               child: Container(
-                color: Colors.white,
+
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/b.png"),
+                    fit: BoxFit.cover,
+                  )
+                ),
+
 
                 height: double.infinity,
                 child: SingleChildScrollView(
@@ -112,11 +122,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                         Text('About',style: textTheme.textStyle!.copyWith(fontSize: 25)),
+                         InkWell(
+                             onTap: (){
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutScreen()));
+                             },
+                             child: Text('About',style: textTheme.textStyle!.copyWith(fontSize: 25))),
                           const SizedBox(width: 30,),
-                          Text('Skills',style: textTheme.textStyle!.copyWith(fontSize: 25)),
+                          InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> SkillsPage()));
+                              },
+                              child: Text('Skills',style: textTheme.textStyle!.copyWith(fontSize: 25))),
                       const SizedBox(width: 30,),
-                          Text('Projects',style: textTheme.textStyle!.copyWith(fontSize: 25)),
+                          InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> ProjectsScreen()));
+                              },
+                              child: Text('Projects',style: textTheme.textStyle!.copyWith(fontSize: 25))),
                           const SizedBox(width: 30,),
                         ],
                       ),
