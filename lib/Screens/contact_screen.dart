@@ -1,13 +1,18 @@
-import 'package:ali_aqdas/coustom_widgets/widgets_costum.dart';
-import 'package:ali_aqdas/main.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../Responsive_Layout/desktopScaffold.dart';
+import '../coustom_widgets/widgets_costum.dart';
 
-class Contact_screen extends StatelessWidget {
+class Contact_screen extends StatefulWidget {
+
   const Contact_screen({super.key});
+
+  @override
+
+  State<Contact_screen> createState() => _Contact_screenState();
+}
+Color submit_Color =  Colors.black.withOpacity(0.2);
+class _Contact_screenState extends State<Contact_screen>{
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class Contact_screen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/b.png'),
+            image: AssetImage('assets/images/b2.png'),
             fit:BoxFit.cover
           )
         ),
@@ -106,28 +111,42 @@ class Contact_screen extends StatelessWidget {
 
                        CustomTextField(text1: 'Message', expand: true, maxLines: null, height: 150,)
                     ,SizedBox(height: 20,),
-                      Container(
+                      MouseRegion(
+                        onEnter: (_){
+                          setState(() {
+                            submit_Color=  Colors.amberAccent.withOpacity(1);
+                          });
 
-                        margin: EdgeInsets.all(10),
-                        child: const Center(child:  Text('Submit',
-                          style:  TextStyle(
-                            fontFamily: 'prata',
-                            fontSize: 15,
-                            color: Colors.black,
+                        },
+                        onExit: (_){
+                          setState(() {
+                            submit_Color=   Colors.black.withOpacity(0.2);
+                          });
+                        },
+
+                        child: Container(
+
+                          margin: EdgeInsets.all(10),
+                          child: const Center(child:  Text('Submit',
+                            style:  TextStyle(
+                              fontFamily: 'prata',
+                              fontSize: 15,
+                              color: Colors.black,
 
 
-                            fontWeight: FontWeight.w900,
-                          ),),),
-                        height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                spreadRadius: 3,
-                                blurRadius: 5,
-                                offset: const Offset(0, 3)
-                            )
-                          ]
-                      ),),
+                              fontWeight: FontWeight.w900,
+                            ),),),
+                          height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
+                            boxShadow: [
+                              BoxShadow(
+                                  color:submit_Color,
+                                  spreadRadius: 3,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3)
+                              )
+                            ]
+                        ),),
+                      ),
                     ]
                   )
                 ),

@@ -1,4 +1,4 @@
-import 'package:ali_aqdas/main.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class AboutScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image:DecorationImage(
-            image: AssetImage('assets/images/b.png'),
+            image: AssetImage('assets/images/b3.png'),
             fit: BoxFit.cover
           )
         ),
@@ -106,7 +106,7 @@ class AboutScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
 
-                          Text('Education',style: textTheme.headerStyle!.copyWith(fontWeight: FontWeight.w500),),
+                          Text('Education',style: textTheme.headerStyle!.copyWith(fontWeight: FontWeight.w500,fontSize: 45),),
                        Text('Intermediate in Computer Science (ICS)\nRead Foundation collage\n2021 - 2023\nCompleted my ICS with a strong focus on software development and programming fundamentals.Courses included Computer Science, Mathematics, and Physics.',style: textTheme.textStyle,),
                           Text('Diploma in App Development\nGCT Tevta Mirpur\n2023 Completed an intensive app development course focusing on Flutter and Dart.Developed several projects, showcasing proficiency in mobile app development and user-centered design.',style: textTheme.textStyle!.copyWith(fontWeight: FontWeight.w900),),
                         ],

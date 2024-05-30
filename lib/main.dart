@@ -1,14 +1,10 @@
-import 'package:ali_aqdas/Responsive_Layout/desktopScaffold.dart';
-import 'package:ali_aqdas/Responsive_Layout/mobileScaffold.dart';
-import 'package:ali_aqdas/Responsive_Layout/responisive_layout.dart';
-import 'package:ali_aqdas/Themes/text_theme.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Responsive_Layout/desktopScaffold.dart';
+import 'Responsive_Layout/mobileScaffold.dart';
+import 'Responsive_Layout/responisive_layout.dart';
 
-import 'Screens/Skills_screen.dart';
-import 'Screens/about.dart';
-import 'Screens/contact_screen.dart';
-import 'Screens/project_Screen.dart';
 
 
 void main() {
@@ -22,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Portfolio',
+      title: 'Ali.dev',
 
       theme: ThemeData(
         primarySwatch: Colors.amber,
@@ -32,7 +28,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: responsive_Layout(
-        mobileScaffold: mobileScaffold( ),
+        mobileScaffold: MobileScaffold( ),
         desktopScaffold: MyHomePage(title: '',),
 
       )

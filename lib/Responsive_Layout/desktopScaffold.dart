@@ -1,4 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../Screens/Skills_screen.dart';
 import '../Screens/about.dart';
@@ -13,7 +16,12 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
-final textTheme = TextThemeCustom();
+final textTheme =   TextThemeCustom();
+Color about_Color = Colors.black;
+Color skill_Color = Colors.black;
+Color project_Color = Colors.black;
+Color button_shadow =   Colors.grey.withOpacity(1);
+Color button_shadow2 =   Colors.grey.withOpacity(1);
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
@@ -79,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/b.png"),
+                      image: AssetImage("assets/images/b3.png"),
                       fit: BoxFit.cover,
                     )
                 ),
@@ -94,23 +102,66 @@ class _MyHomePageState extends State<MyHomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          InkWell(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutScreen()));
-                              },
-                              child: Text('About',style: textTheme.textStyle!.copyWith(fontSize: 25))),
+                          MouseRegion(
+                            onEnter: (_) {
+                              setState(() {
+                                about_Color = Colors.amber; // Change to the desired color on hover
+                              });
+                            },
+                            onExit: (_){
+                              setState(() {
+                                about_Color= Colors.black;
+
+                              });
+                            },
+
+
+                            child: InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutScreen()));
+                                },
+                                child: Text('About',style: textTheme.textStyle!.copyWith(fontSize: 25,color: about_Color))),
+                          ),
                           const SizedBox(width: 30,),
                           InkWell(
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> SkillsPage()));
                               },
-                              child: Text('Skills',style: textTheme.textStyle!.copyWith(fontSize: 25))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: MouseRegion(
+                                    onEnter: (_){
+                                      setState(() {
+                                        skill_Color= Colors.amber;
+
+
+                                      });
+                                    },
+                                    onExit: (_){
+                                      setState(() {
+                                        skill_Color = Colors.black;
+
+                                      });
+                                    },
+                                    child: Text('Skills',style: textTheme.textStyle!.copyWith(fontSize: 25,color: skill_Color))),
+                              )),
                           const SizedBox(width: 30,),
                           InkWell(
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> ProjectsScreen()));
                               },
-                              child: Text('Projects',style: textTheme.textStyle!.copyWith(fontSize: 25))),
+                              child: MouseRegion(
+                                  onEnter: (_){
+                                    setState(() {
+                                      project_Color= Colors.amber;
+                                    });
+                                  },
+                                  onExit: (_){
+                                    setState(() {
+                                      project_Color=Colors.black;
+                                    });
+                                  },
+                                  child: Text('Projects',style: textTheme.textStyle!.copyWith(fontSize: 25,color: project_Color)))),
                           const SizedBox(width: 30,),
                         ],
                       ),
@@ -121,68 +172,111 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
 
 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Text(
-                            'I’m Ali Aqdas, a Flutter developer with experience in building cross-platform apps. My focus is on creating functional and visually appealing applications. Let’s work together to bring your ideas to life.',
-                            textAlign: TextAlign.center,
-                            style: textTheme.textStyle!.copyWith(fontSize: 20)
+                      SizedBox(height: 80,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: DefaultTextStyle(
+                            textAlign: TextAlign.end,
+                            style:textTheme.textStyle,
+                            child: AnimatedTextKit(
+                              repeatForever: false,
+                              totalRepeatCount: 1,
+                              animatedTexts: [
+                                TypewriterAnimatedText('I’m Ali Aqdas, a Flutter developer with experience in building cross-platform apps. My focus is on creating functional and visually appealing applications. Let’s work together to bring your ideas to life.'),
+
+                              ],
+
+                            ),
+                          ),
+
+
                         ),
                       ),
+
                       Container(
 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
+                            SizedBox(
+                              child:   MouseRegion(
+                                onEnter: (_){
+                                  setState(() {
+                                    button_shadow2=   Colors.amberAccent.withOpacity(1);
+                                  });
+                                },
+                                onExit: (_){
+                                  setState(() {
+                                    button_shadow2=    Colors.grey.withOpacity(1);
+                                  });
 
-                              margin: EdgeInsets.all(20),
-                              child: const Center(child:  Text('Download CV',
-                                style:  TextStyle(
-                                  fontFamily: 'prata',
-                                  fontSize: 15,
-                                  color: Colors.black,
+                                },
+                                child: Container(
+
+                                  margin: EdgeInsets.all(20),
+                                  child: const Center(child:  Text('Download CV',
+                                    style:  TextStyle(
+                                      fontFamily: 'prata',
+                                      fontSize: 15,
+                                      color: Colors.black,
 
 
-                                  fontWeight: FontWeight.w900,
-                                ),),),
-                              height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 3,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3)
-                                  )
-                                ]
-                            ),),
+                                      fontWeight: FontWeight.w900,
+                                    ),),),
+                                  height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: button_shadow2,
+                                          spreadRadius: 3,
+                                          blurRadius: 5,
+                                          offset: const Offset(0, 3)
+                                      )
+                                    ]
+                                ),),
+                              ),
+                            ),
+
                             InkWell(
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Contact_screen()));
 
 
                               },
-                              child: Container(
+                              child: MouseRegion(
+                                onEnter: (_){
+                                  setState(() {
+                                    button_shadow=Colors.amber.withOpacity(1);
 
-                                child: Center(child: Text('Contact Me',  style:  TextStyle(
-                                  fontFamily: 'prata',
-                                  fontSize: 15,
-                                  color: Colors.black,
+                                  });
+                                },
+                                onExit: (_){
+                                  setState(() {
+                                    button_shadow=   Colors.grey.withOpacity(1);
+                                  });
+                                },
+
+                                child: Container(
+
+                                  child: Center(child: Text('Contact Me',  style:  TextStyle(
+                                    fontFamily: 'prata',
+                                    fontSize: 15,
+                                    color: Colors.black,
 
 
-                                  fontWeight: FontWeight.w900,
-                                ),),), height: 50,width: 200,decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.2),
-                                        blurRadius:5,
-                                        spreadRadius: 3,
-                                        offset: const Offset(0, 3)
-                                    )
-                                  ],
-                                  borderRadius:BorderRadius.circular(50),
-                                  border: Border.all(width: 5,color: Colors.amber,)),),
+                                    fontWeight: FontWeight.w900,
+                                  ),),), height: 50,width: 200,decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:button_shadow,
+                                          blurRadius:5,
+                                          spreadRadius: 3,
+                                          offset: const Offset(0, 3)
+                                      )
+                                    ],
+                                    borderRadius:BorderRadius.circular(50),
+                                    border: Border.all(width: 5,color: Colors.amber,)),),
+                              ),
                             ),
 
                           ],

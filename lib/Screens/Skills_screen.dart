@@ -1,6 +1,7 @@
-import 'package:ali_aqdas/Themes/text_theme.dart';
+
 import 'package:flutter/material.dart';
 
+import '../Themes/text_theme.dart';
 import '../coustom_widgets/widgets_costum.dart';
 
 class SkillsPage extends StatelessWidget {
