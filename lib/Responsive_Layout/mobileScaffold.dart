@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../Screens/Skills_screen.dart';
 import '../Screens/about.dart';
 import '../Screens/contact_screen.dart';
@@ -12,7 +14,6 @@ class MobileScaffold extends StatefulWidget {
   @override
   State<MobileScaffold> createState() => _MobileScaffoldState();
 }
-
 class _MobileScaffoldState extends State<MobileScaffold> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
@@ -196,23 +197,35 @@ class _MobileScaffoldState extends State<MobileScaffold> with SingleTickerProvid
                             ),
                             Text(
                               'I’m Ali Aqdas,\na Flutter developer with experience in building cross-platform apps. My focus is on creating functional and visually appealing applications. Let’s work together to bring your ideas to life.',
-                              style: textTheme.textStyle,
+                              style:textTheme.textStyle ,
                             ),
                             SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Image.asset(
-                                  'assets/images/git.png',
-                                  height: 40 * _scaleAnimation.value,
+                                SizedBox(
+                                  child: InkWell(
+                                    onTap:()=>launch('https://github.com/aliaqdas747'),
+
+                                    child: Image.asset(
+                                      'assets/images/git.png',
+                                      height: 40 * _scaleAnimation.value,
+                                    ),
+                                  ),
                                 ),
-                                Image.asset(
-                                  'assets/images/link.png',
-                                  height: 40 * _scaleAnimation.value,
+                                InkWell(
+                                  onTap: ()=>launch('https://www.linkedin.com/in/ali-aqdas-9a2ba8299/'),
+                                  child: Image.asset(
+                                    'assets/images/link.png',
+                                    height: 40 * _scaleAnimation.value,
+                                  ),
                                 ),
-                                Image.asset(
-                                  'assets/images/insta.png',
-                                  height: 40 * _scaleAnimation.value,
+                                InkWell(
+                                  onTap: ()=>launch('https://www.instagram.com/ali_aqdas1/'),
+                                  child: Image.asset(
+                                    'assets/images/insta.png',
+                                    height: 40 * _scaleAnimation.value,
+                                  ),
                                 ),
                               ],
                             ),

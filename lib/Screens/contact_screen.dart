@@ -1,5 +1,10 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../Responsive_Layout/desktopScaffold.dart';
 import '../coustom_widgets/widgets_costum.dart';
 
@@ -13,6 +18,44 @@ class Contact_screen extends StatefulWidget {
 }
 Color submit_Color =  Colors.black.withOpacity(0.2);
 class _Contact_screenState extends State<Contact_screen>{
+TextEditingController emailController = TextEditingController();
+TextEditingController nameController = TextEditingController();
+TextEditingController subjectController = TextEditingController();
+TextEditingController msgController = TextEditingController();
+
+void saveMessage(){
+  String email = emailController.text.trim();
+  String name = nameController.text.trim();
+  String subject = subjectController.text.trim();
+  String message = msgController.text.trim();
+
+
+
+
+
+
+  if(email.isNotEmpty && name.isNotEmpty && subject.isNotEmpty && message.isNotEmpty)
+  {
+    Map<String ,dynamic> newMsg = {
+      'Email':email,
+      'Name':name,
+      'Subject':subject,
+      'Message':message,
+
+    };
+
+   FirebaseFirestore.instance.collection('Messages').doc(name).set(newMsg);
+    emailController.clear();
+    nameController.clear();
+    subjectController.clear();
+    msgController.clear();
+    _showNotification();
+  }else{
+    print('No Data ');
+    _errorNotification();
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,25 +102,34 @@ class _Contact_screenState extends State<Contact_screen>{
                       SizedBox(height: 20,),
                         Text("Connect Online",style: textTheme.subHeaderStyle!.copyWith(fontSize: 25),),
 
-                        ListTile(
-                         leading: CircleAvatar(
-                           backgroundImage: AssetImage("assets/images/link.png"),),
-                          title: Text("Linkedin"),
-                          subtitle: Text("Ali Aqdas"),
-                        ),
-                        ListTile(
-                          leading: CircleAvatar(
-                            child: Image.asset('assets/images/instagram.png'),
-                           ),
-                          title: Text("Instagram"),
-                          subtitle: Text("Ali Aqdas"),
-                        ),
-                        ListTile(
-                          leading: CircleAvatar(
-                            child: Image.asset('assets/images/git.png'),
+                        InkWell(
+                          onTap: ()=>launch('https://www.linkedin.com/in/ali-aqdas-9a2ba8299/'),
+                          child: ListTile(
+                           leading: CircleAvatar(
+                             backgroundImage: AssetImage("assets/images/link.png"),),
+                            title: Text("Linkedin"),
+                            subtitle: Text("Ali Aqdas"),
                           ),
-                          title: Text("Github"),
-                          subtitle: Text("aliaqdas747"),
+                        ),
+                        InkWell(
+                          onTap: ()=>launch('https://www.instagram.com/ali_aqdas1/'),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              child: Image.asset('assets/images/instagram.png'),
+                             ),
+                            title: Text("Instagram"),
+                            subtitle: Text("Ali Aqdas"),
+                          ),
+                        ),
+                        InkWell(
+                          onTap:()=>launch('https://github.com/aliaqdas747'),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              child: Image.asset('assets/images/git.png'),
+                            ),
+                            title: Text("Github"),
+                            subtitle: Text("aliaqdas747"),
+                          ),
                         ),
                           ],
                     ),
@@ -105,47 +157,57 @@ class _Contact_screenState extends State<Contact_screen>{
                         child: Text("Share your ideas or project details below, and let's turn your vision into reality!",style: textTheme.textStyle,),
                       ),
                       SizedBox(height: 20,),
-                      CustomTextField(text1: "Enter Your Email", expand: false, height: 60,  ),
-                      CustomTextField(text1: 'Enter Your Name', expand: false, height: 60, ),
-                      CustomTextField(text1: 'Enter Subject', expand: false, height: 60 ,),
 
-                       CustomTextField(text1: 'Message', expand: true, maxLines: null, height: 150,)
-                    ,SizedBox(height: 20,),
-                      MouseRegion(
-                        onEnter: (_){
-                          setState(() {
-                            submit_Color=  Colors.amberAccent.withOpacity(1);
-                          });
 
+                      CustomTextField(text1: "Email Address", expand: false, height: 60, controller: emailController,  ),
+                      CustomTextField(text1: 'Full Name', expand: false, height: 60, controller: nameController, ),
+                      CustomTextField(text1: 'Subject', expand: false, height: 60, controller: subjectController ,),
+                       CustomTextField(text1: 'Your Message', expand: true, maxLines: null, height: 150, controller: msgController,),
+
+
+
+
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          saveMessage();
                         },
-                        onExit: (_){
-                          setState(() {
-                            submit_Color=   Colors.black.withOpacity(0.2);
-                          });
-                        },
+                        child: MouseRegion(
+                          onEnter: (_){
+                            setState(() {
+                              submit_Color=  Colors.amberAccent.withOpacity(1);
+                            });
 
-                        child: Container(
+                          },
+                          onExit: (_){
+                            setState(() {
+                              submit_Color=   Colors.black.withOpacity(0.2);
+                            });
+                          },
 
-                          margin: EdgeInsets.all(10),
-                          child: const Center(child:  Text('Submit',
-                            style:  TextStyle(
-                              fontFamily: 'prata',
-                              fontSize: 15,
-                              color: Colors.black,
+                          child: Container(
+
+                            margin: EdgeInsets.all(10),
+                            child: const Center(child:  Text('Submit',
+                              style:  TextStyle(
+                                fontFamily: 'prata',
+                                fontSize: 15,
+                                color: Colors.black,
 
 
-                              fontWeight: FontWeight.w900,
-                            ),),),
-                          height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
-                            boxShadow: [
-                              BoxShadow(
-                                  color:submit_Color,
-                                  spreadRadius: 3,
-                                  blurRadius: 5,
-                                  offset: const Offset(0, 3)
-                              )
-                            ]
-                        ),),
+                                fontWeight: FontWeight.w900,
+                              ),),),
+                            height: 50,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.amber,
+                              boxShadow: [
+                                BoxShadow(
+                                    color:submit_Color,
+                                    spreadRadius: 3,
+                                    blurRadius: 5,
+                                    offset: const Offset(0, 3)
+                                )
+                              ]
+                          ),),
+                        ),
                       ),
                     ]
                   )
@@ -158,4 +220,23 @@ class _Contact_screenState extends State<Contact_screen>{
       ),
     );
   }
+}
+
+  void _showNotification() {
+    Get.snackbar(
+      'Notification',
+      'Your message has been successfully sent',
+      backgroundColor: Colors.white,
+      snackPosition: SnackPosition.TOP,
+      duration: Duration(seconds: 3),
+    );
+  }
+void _errorNotification(){
+  Get.snackbar(
+      'Notification',
+      'Oops! It looks like you missed a spot. Please fill in all fields',
+    backgroundColor: Colors.white,
+    snackPosition: SnackPosition.TOP,
+    duration: Duration(seconds: 3),
+  );
 }

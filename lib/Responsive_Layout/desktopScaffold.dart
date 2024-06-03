@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import '../Screens/Skills_screen.dart';
 import '../Screens/about.dart';
 import '../Screens/contact_screen.dart';
@@ -87,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/b3.png"),
+                      image: AssetImage("assets/images/bg.png"),
                       fit: BoxFit.cover,
                     )
                 ),

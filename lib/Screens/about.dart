@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Themes/text_theme.dart';
 
@@ -197,9 +198,12 @@ class AboutScreen extends StatelessWidget {
                                     onTap: () {
                                       // Add your LinkedIn URL here
                                     },
-                                    child: Text(
-                                      "LinkedIn Profile",
-                                      style: textTheme.textStyle!.copyWith(fontSize: 20, color: Colors.blue, decoration: TextDecoration.underline),
+                                    child: InkWell(
+                                      onTap: ()=>launch('https://www.linkedin.com/in/ali-aqdas-9a2ba8299/'),
+                                      child: Text(
+                                        "LinkedIn Profile",
+                                        style: textTheme.textStyle!.copyWith(fontSize: 20, color: Colors.blue, decoration: TextDecoration.underline),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -213,13 +217,18 @@ class AboutScreen extends StatelessWidget {
                                     onTap: () {
                                       // Add your GitHub URL here
                                     },
-                                    child: Text(
-                                      "GitHub Profile",
-                                      style: textTheme.textStyle!.copyWith(fontSize: 20, color: Colors.blue, decoration: TextDecoration.underline),
+                                    child: InkWell(
+                                      onTap:()=>launch('https://github.com/aliaqdas747'),
+                                      child: Text(
+                                        "GitHub Profile",
+                                        style: textTheme.textStyle!.copyWith(fontSize: 20, color: Colors.blue, decoration: TextDecoration.underline),
+                                      ),
                                     ),
                                   ),
+
                                 ],
                               ),
+                              Text('© 2024 Ali Aqdas. All Rights Reserved.', style: textTheme.textStyle!.copyWith(fontSize: 16, color: Colors.grey)),
                             ],
                           ),
                         ],
@@ -227,8 +236,8 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Divider(height: 10,),
-                Text('© 2024 Ali Aqdas. All Rights Reserved.', style: textTheme.textStyle!.copyWith(fontSize: 16, color: Colors.grey)),
+
+
 
 
 

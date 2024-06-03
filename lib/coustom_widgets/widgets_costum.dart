@@ -26,14 +26,17 @@ class Custom_container extends StatelessWidget {
 }
 class CustomTextField extends StatelessWidget {
   final String text1;
+  final TextEditingController controller;
   final int? maxLines;
   final bool expand;
   final double? height;
 
+
   const CustomTextField({super.key,
     required this.text1,
      this.maxLines,
-    required this.expand, required this.height
+    required this.expand,
+    required this.height, required this.controller
   });
 
   @override
@@ -44,6 +47,7 @@ margin: EdgeInsets.all(5),
         height: height,
 
         child: TextField(
+          controller: controller,
           maxLines: maxLines,
           expands: expand,
           decoration: InputDecoration(
