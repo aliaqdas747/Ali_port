@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import '../Responsive_Layout/desktopScaffold.dart';
@@ -42,6 +43,9 @@ void saveMessages(){
     nameController.clear();
     subjectController.clear();
     msgController.clear();
+    _showNotification();
+  }else{
+    _errorNotification();
   }
 }
 
@@ -212,11 +216,11 @@ void saveMessages(){
     );
   }
 }
-/*
+
   void _showNotification() {
     Get.snackbar(
       'Notification',
-      'Your message has been successfully sent',
+      'Your message has been successfully sent to developer',
       backgroundColor: Colors.white,
       snackPosition: SnackPosition.TOP,
       duration: Duration(seconds: 3),
@@ -232,4 +236,3 @@ void _errorNotification(){
   );
 }
 
- */
