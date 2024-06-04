@@ -2,8 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import '../Responsive_Layout/desktopScaffold.dart';
 import '../coustom_widgets/widgets_costum.dart';
@@ -18,43 +17,35 @@ class Contact_screen extends StatefulWidget {
 }
 Color submit_Color =  Colors.black.withOpacity(0.2);
 class _Contact_screenState extends State<Contact_screen>{
+
 TextEditingController emailController = TextEditingController();
 TextEditingController nameController = TextEditingController();
 TextEditingController subjectController = TextEditingController();
 TextEditingController msgController = TextEditingController();
 
-void saveMessage(){
+void saveMessages(){
   String email = emailController.text.trim();
   String name = nameController.text.trim();
   String subject = subjectController.text.trim();
-  String message = msgController.text.trim();
+  String msg = msgController.text.trim();
 
+  Map<String,dynamic> newMessage = {
+    'Name':name,
+    'Email':email,
+    'Subject':subject,
+    "Messages":msg
+  };
 
-
-
-
-
-  if(email.isNotEmpty && name.isNotEmpty && subject.isNotEmpty && message.isNotEmpty)
-  {
-    Map<String ,dynamic> newMsg = {
-      'Email':email,
-      'Name':name,
-      'Subject':subject,
-      'Message':message,
-
-    };
-
-   FirebaseFirestore.instance.collection('Messages').doc(name).set(newMsg);
+  if(email != ''&& name!=""&& subject!="" && msg!= ""){
+    FirebaseFirestore.instance.collection('Messages').doc(name).set(newMessage);
     emailController.clear();
     nameController.clear();
     subjectController.clear();
     msgController.clear();
-    _showNotification();
-  }else{
-    print('No Data ');
-    _errorNotification();
   }
 }
+
+
 
 
   @override
@@ -170,7 +161,7 @@ void saveMessage(){
                       SizedBox(height: 20,),
                       GestureDetector(
                         onTap: (){
-                          saveMessage();
+                          saveMessages();
                         },
                         child: MouseRegion(
                           onEnter: (_){
@@ -221,7 +212,7 @@ void saveMessage(){
     );
   }
 }
-
+/*
   void _showNotification() {
     Get.snackbar(
       'Notification',
@@ -240,3 +231,5 @@ void _errorNotification(){
     duration: Duration(seconds: 3),
   );
 }
+
+ */
