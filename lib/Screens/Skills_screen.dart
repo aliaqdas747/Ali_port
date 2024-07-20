@@ -1,6 +1,6 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../Themes/text_theme.dart';
 import '../coustom_widgets/widgets_costum.dart';
 
@@ -11,7 +11,7 @@ class SkillsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text('Flutter Skills Set'),
+        title:const Text('Flutter Skills Set'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -37,7 +37,7 @@ class SkillsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  margin: EdgeInsets.all(10),
+                  margin:const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(50)
@@ -59,7 +59,7 @@ class SkillsPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: Colors.amber,
                           borderRadius: BorderRadius.circular(50)
@@ -78,7 +78,7 @@ class SkillsPage extends StatelessWidget {
                             padding: const EdgeInsets.all(20.0),
                              child: Center(child: Text("Ecommerce App",style: TextStyle(fontSize: 30,color: Colors.amber),))
                           ),
-                          margin: EdgeInsets.all(10),
+                          margin:const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/ecommerce.png'),
@@ -96,9 +96,9 @@ class SkillsPage extends StatelessWidget {
                             padding: const EdgeInsets.all(20.0),
                             child: Center(child: Text("Weather App",style: TextStyle(fontSize: 30,color: Colors.white),))
                           ),
-                          margin: EdgeInsets.all(10),
+                          margin:const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                   image: AssetImage('assets/images/weather.png'),
                                   fit: BoxFit.cover
                               ),
@@ -111,26 +111,26 @@ class SkillsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                   width: 450,
                   child: Column(
                     children: [
-                      SkillProgress(
+                      const  SkillProgress(
                         skill: 'Flutter',
                         percentage: 0.9,
                         image: 'assets/images/flutter1.png',
                       ),
-                      SkillProgress(
+                      const    SkillProgress(
                         skill: 'Dart',
                         percentage: 0.82,
                         image: 'assets/images/dart.png',
                       ),
-                      SkillProgress(
+                      const  SkillProgress(
                         skill: 'Firebase',
                         percentage: 0.7,
                         image: 'assets/images/firebase.png',
                       ),
-                      SkillProgress(
+                      const   SkillProgress(
                         skill: 'Sqlite',
                         percentage: 0.8,
                         image: 'assets/images/sqlite.png',

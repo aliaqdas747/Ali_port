@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 
 class ProjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Projects'),
+        title:const Text('Projects'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -20,25 +19,25 @@ class ProjectsScreen extends StatelessWidget {
                 description: 'Developed a full-featured e-commerce application with Flutter, supporting user authentication, product browsing, and secure payments.',
                 imagePath: 'assets/images/ecommerce.png',
               ),
-              SizedBox(height: 16),
+              const  SizedBox(height: 16),
               ProjectCard(
                 title: 'Weather App',
                 description: 'Created a weather forecasting app using Flutter and OpenWeatherMap API. Displays current weather conditions and forecasts for different cities.',
                 imagePath: 'assets/images/weather.png',
               ),
-              SizedBox(height: 16),
+              const  SizedBox(height: 16),
               ProjectCard(
                 title: 'Social Media App',
                 description: 'Built a social media application with Flutter, allowing users to create profiles, post updates, and interact with others in real-time.',
                 imagePath: 'assets/images/social.png',
               ),
-              SizedBox(height: 16),
+              const  SizedBox(height: 16),
               ProjectCard(
                 title: 'To-Do List App',
                 description: 'Developed a task management app with Flutter. Features include adding, deleting, and marking tasks as complete, with a user-friendly interface.',
                 imagePath: 'assets/images/toDo.png',
               ),
-              SizedBox(height: 16),
+              const      SizedBox(height: 16),
               ProjectCard(
                 title: 'Portfolio Website',
                 description: 'Designed and developed a personal portfolio website using Flutter Web to showcase my projects, skills, and experience.',
@@ -57,7 +56,8 @@ class ProjectCard extends StatelessWidget {
   final String description;
   final String imagePath;
 
-  ProjectCard({
+  ProjectCard(
+      {
     required this.title,
     required this.description,
     required this.imagePath,
@@ -66,7 +66,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding:const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.amber,
         borderRadius: BorderRadius.circular(16),
@@ -75,7 +75,7 @@ class ProjectCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset:const Offset(0, 3),
           ),
         ],
       ),
@@ -92,22 +92,22 @@ class ProjectCard extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 16),
+          const  SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style:const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 8),
+                const   SizedBox(height: 8),
                 Text(
                   description,
-                  style: TextStyle(
+                  style:const TextStyle(
                     fontSize: 16,
                   ),
                 ),

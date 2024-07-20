@@ -31,12 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(
               flex: 5,
               child: Container(
-                margin: EdgeInsets.only(right: 20),
+                margin:const EdgeInsets.only(right: 20),
                 width: 450,
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   ],
                   color: Colors.amber,
-                  borderRadius: BorderRadius.only(
+                  borderRadius:const BorderRadius.only(
                       topRight: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
                 ),
@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+
                     Text(
                         'ALI AQDAS',
                         style:textTheme.textStyle!.copyWith(fontSize: 35)
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 15,
               child: Container(
 
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/bg.png"),
                       fit: BoxFit.cover,
@@ -92,12 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 
 
-                height: double.infinity,
+
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20,),
+                  const  SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -117,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                             child: InkWell(
                                 onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> AboutScreen()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const AboutScreen()));
                                 },
                                 child: Text('About',style: textTheme.textStyle!.copyWith(fontSize: 25,color: about_Color))),
                           ),
@@ -166,8 +167,34 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Image.asset(
                         'assets/images/alia.png',
-                        height: 400,
+                        height: 350,
                         width: 400,
+                      ),
+                      SizedBox(
+                        height: 80,
+
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const SizedBox(width: 20.0, height: 100.0),
+                            DefaultTextStyle(
+                              style: textTheme.subHeaderStyle!.copyWith(fontSize: 30,fontWeight: FontWeight.w900,color: Colors.orange),
+                              child: AnimatedTextKit(
+                                repeatForever: true,
+                                animatedTexts: [
+                                  RotateAnimatedText(
+                                      "Let's Turn Your Ideas into Exceptional Projects!"),
+                                  RotateAnimatedText('Transforming Visions into Reality!'),
+                                  RotateAnimatedText('Crafting Innovative Solutions!'),
+                                ],
+                                onTap: () {
+                                  // Handle onTap event here
+
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
 
 
@@ -212,8 +239,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 },
                                 child: Container(
 
-                                  margin: EdgeInsets.all(20),
-                                  child: const Center(child:  Text('Download CV',
+                                  margin:const EdgeInsets.only(right: 20),
+                                  child:  const Center(child:  Text('Download CV',
                                     style:  TextStyle(
                                       fontFamily: 'prata',
                                       fontSize: 15,
@@ -237,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                             InkWell(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> Contact_screen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Contact_screen()));
 
 
                               },

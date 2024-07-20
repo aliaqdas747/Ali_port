@@ -1,9 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import '../Responsive_Layout/desktopScaffold.dart';
 import '../coustom_widgets/widgets_costum.dart';
@@ -56,13 +54,13 @@ void saveMessages(){
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Let's get Connected",style: textTheme.subHeaderStyle,),
+        title: Text("Contact us",style: textTheme.subHeaderStyle,),
         backgroundColor: Colors.amber,
       ),
 
       backgroundColor: Colors.white,
       body: Container(
-        decoration: BoxDecoration(
+        decoration:const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/b2.png'),
             fit:BoxFit.cover
@@ -77,81 +75,21 @@ void saveMessages(){
 
                 Container(
                   width: 400,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Get in Touch",style: textTheme.subHeaderStyle,),
-                        Text("Want to discuss a project or just chat about coding? "
-                            "Reach out to me through any of the channels below."
-                            " Whether you're a fan of phone calls, social media,"
-                            " or good old-fashioned emails, I'm here and eager to"
-                            " connect with fellow developers like you!",style: textTheme.textStyle,),
-                        SizedBox(height: 10,),
-                        Text("Contact Info:",style: textTheme.subHeaderStyle!.copyWith(fontSize: 25),),
-                        SizedBox(height: 10,),
-                        Text("📞 Phone:+923136033747",style: textTheme.textStyle,),
-                        Text("📧 Email: developerflutter470@gmail.com",style: textTheme.textStyle!.copyWith(fontSize: 20),),
-                      SizedBox(height: 20,),
-                        Text("Connect Online",style: textTheme.subHeaderStyle!.copyWith(fontSize: 25),),
 
-                        InkWell(
-                          onTap: ()=>launch('https://www.linkedin.com/in/ali-aqdas-9a2ba8299/'),
-                          child: ListTile(
-                           leading: CircleAvatar(
-                             backgroundImage: AssetImage("assets/images/link.png"),),
-                            title: Text("Linkedin"),
-                            subtitle: Text("Ali Aqdas"),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: ()=>launch('https://www.instagram.com/ali_aqdas1/'),
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              child: Image.asset('assets/images/instagram.png'),
-                             ),
-                            title: Text("Instagram"),
-                            subtitle: Text("Ali Aqdas"),
-                          ),
-                        ),
-                        InkWell(
-                          onTap:()=>launch('https://github.com/aliaqdas747'),
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              child: Image.asset('assets/images/git.png'),
-                            ),
-                            title: Text("Github"),
-                            subtitle: Text("aliaqdas747"),
-                          ),
-                        ),
-                          ],
-                    ),
-                  ),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                   borderRadius: BorderRadius.circular(50)
-                  ),
-                  ),
-                Container(
-                  width: 400,
-
-                  margin: EdgeInsets.all(10),
+                  margin:const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(50)
                   ),
                   child:Column(
                     children:[
-                      SizedBox(height: 20,),
+                     const SizedBox(height: 20,),
                       Text("Let's Collaborate",style: textTheme.subHeaderStyle,),
                       Padding(
                         padding: const EdgeInsets.only(left: 20,right: 20,bottom: 5),
                         child: Text("Share your ideas or project details below, and let's turn your vision into reality!",style: textTheme.textStyle,),
                       ),
-                      SizedBox(height: 20,),
+                   const   SizedBox(height: 20,),
 
 
                       CustomTextField(text1: "Email Address", expand: false, height: 60, controller: emailController,  ),
@@ -162,7 +100,7 @@ void saveMessages(){
 
 
 
-                      SizedBox(height: 20,),
+                   const   SizedBox(height: 20,),
                       GestureDetector(
                         onTap: (){
                           saveMessages();
@@ -182,7 +120,7 @@ void saveMessages(){
 
                           child: Container(
 
-                            margin: EdgeInsets.all(10),
+                            margin:const  EdgeInsets.all(10),
                             child: const Center(child:  Text('Submit',
                               style:  TextStyle(
                                 fontFamily: 'prata',
@@ -208,6 +146,67 @@ void saveMessages(){
                   )
                 ),
 
+                Container(
+                  width: 400,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                           Text("Get in Touch",style: textTheme.subHeaderStyle,),
+                        Text("Want to discuss a project or just chat about coding? "
+                            "Reach out to me through any of the channels below."
+                            " Whether you're a fan of phone calls, social media,"
+                            " or good old-fashioned emails, I'm here and eager to"
+                            " connect with fellow developers like you!",style: textTheme.textStyle,),
+                        const    SizedBox(height: 10,),
+                        Text("Contact Info:",style: textTheme.subHeaderStyle!.copyWith(fontSize: 25),),
+                        const   SizedBox(height: 10,),
+                        Text("📞 Phone:+923136033747",style: textTheme.textStyle,),
+                        Text("📧 Email: developerflutter470@gmail.com",style: textTheme.textStyle!.copyWith(fontSize: 20),),
+                        const  SizedBox(height: 20,),
+                        Text("Connect Online",style: textTheme.subHeaderStyle!.copyWith(fontSize: 25),),
+
+                        InkWell(
+                          onTap: ()=>launch('https://www.linkedin.com/in/ali-aqdas-9a2ba8299/'),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              backgroundImage: AssetImage("assets/images/link.png"),),
+                            title:const Text("Linkedin"),
+                            subtitle:const Text("Ali Aqdas"),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: ()=>launch('https://www.instagram.com/ali_aqdas1/'),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              child: Image.asset('assets/images/instagram.png'),
+                            ),
+                            title:const Text("Instagram"),
+                            subtitle: const Text("Ali Aqdas"),
+                          ),
+                        ),
+                        InkWell(
+                          onTap:()=>launch('https://github.com/aliaqdas747'),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              child: Image.asset('assets/images/git.png'),
+                            ),
+                            title:const Text("Github"),
+                            subtitle:const Text("aliaqdas747"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  margin:const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(50)
+                  ),
+                ),
+
               ],
             ),
           ),
@@ -223,7 +222,7 @@ void saveMessages(){
       'Your message has been successfully sent to developer',
       backgroundColor: Colors.white,
       snackPosition: SnackPosition.TOP,
-      duration: Duration(seconds: 3),
+      duration:const Duration(seconds: 3),
     );
   }
 void _errorNotification(){
@@ -232,7 +231,7 @@ void _errorNotification(){
       'Oops! It looks like you missed a spot. Please fill in all fields',
     backgroundColor: Colors.white,
     snackPosition: SnackPosition.TOP,
-    duration: Duration(seconds: 3),
+    duration:const Duration(seconds: 3),
   );
 }
 

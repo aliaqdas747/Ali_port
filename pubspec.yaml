@@ -42,6 +42,7 @@ dependencies:
   firebase_core: ^2.32.0
   firebase_auth: ^4.20.0
   get: ^4.6.6
+  provider: ^6.1.2
 
 
 dev_dependencies:
@@ -89,9 +90,9 @@ flutter:
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-    - family: Joe
+    - family: fonts
       fonts:
-        - asset: assets/fonts/joe.ttf
+        - asset: assets/fonts/font.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

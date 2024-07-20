@@ -21,7 +21,7 @@ class AboutScreen extends StatelessWidget {
       backgroundColor: Colors.white,
 
       body: Container(
-        decoration: BoxDecoration(
+        decoration:const BoxDecoration(
           image:DecorationImage(
             image: AssetImage('assets/images/b3.png'),
             fit: BoxFit.cover
@@ -32,7 +32,7 @@ class AboutScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 100,),
+                const    SizedBox(height: 100,),
                 Wrap(
                   alignment: WrapAlignment.spaceEvenly,
                   children: [
@@ -42,7 +42,7 @@ class AboutScreen extends StatelessWidget {
                     ),
 
                     Container(
-                      margin: EdgeInsets.only( left: 100,right: 10,top: 10,bottom: 10),
+                      margin:const EdgeInsets.only( left: 100,right: 10,top: 10,bottom: 10),
 
                       width: 400,
                       child: Column(
@@ -57,16 +57,16 @@ class AboutScreen extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(height: 100,),
-                Divider(height: 5,),
-                SizedBox(height: 100,),
+                const    SizedBox(height: 100,),
+                const    Divider(height: 5,),
+                const    SizedBox(height: 100,),
                 Wrap(
                   alignment: WrapAlignment.spaceEvenly,
                   children: [
 
 
                     Container(
-                      margin: EdgeInsets.only( left: 10,right: 100,top: 10,bottom: 10),
+                      margin:const EdgeInsets.only( left: 10,right: 100,top: 10,bottom: 10),
 
                       width: 400,
                       child: Column(
@@ -88,9 +88,9 @@ class AboutScreen extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(height: 100,),
-                Divider(height: 5,),
-                SizedBox(height: 100,),
+                const  SizedBox(height: 100,),
+                const    Divider(height: 5,),
+                const      SizedBox(height: 100,),
                 Wrap(
                   alignment: WrapAlignment.spaceEvenly,
                   children: [
@@ -100,7 +100,7 @@ class AboutScreen extends StatelessWidget {
                     ),
 
                     Container(
-                      margin: EdgeInsets.only( left: 100,right: 10,top: 10,bottom: 10),
+                      margin:const EdgeInsets.only( left: 100,right: 10,top: 10,bottom: 10),
 
                       width: 400,
                       child: Column(
@@ -117,16 +117,16 @@ class AboutScreen extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(height: 100,),
-                Divider(height: 5,),
-                SizedBox(height: 100,),
+                const SizedBox(height: 100,),
+                const Divider(height: 5,),
+                const    SizedBox(height: 100,),
                 Wrap(
                   alignment: WrapAlignment.spaceEvenly,
                   children: [
 
 
                     Container(
-                      margin: EdgeInsets.only( left: 10,right: 100,top: 10,bottom: 10),
+                      margin:const EdgeInsets.only( left: 10,right: 100,top: 10,bottom: 10),
 
                       width: 400,
                       child: Column(
@@ -155,8 +155,8 @@ class AboutScreen extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(height: 100,),
-                Divider(height: 5,),
+                const    SizedBox(height: 100,),
+                const    Divider(height: 5,),
                 Wrap(
                   alignment: WrapAlignment.spaceEvenly,
                   children: [
@@ -173,27 +173,27 @@ class AboutScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
 
-                              SizedBox(height: 10),
+                              const  SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.email, color: Colors.blue),
-                                  SizedBox(width: 10),
+                                  const   Icon(Icons.email, color: Colors.blue),
+                                  const    SizedBox(width: 10),
                                   Text("aliaqdas747@gmail.com", style: textTheme.textStyle!.copyWith(fontSize: 20),),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.phone, color: Colors.green),
-                                  SizedBox(width: 10),
+                                  const Icon(Icons.phone, color: Colors.green),
+                                  const   SizedBox(width: 10),
                                   Text("(+92)03136033747", style: textTheme.textStyle!.copyWith(fontSize: 20),),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              const  SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.link, color: Colors.blue),
-                                  SizedBox(width: 10),
+                                  const   Icon(Icons.link, color: Colors.blue),
+                                  const  SizedBox(width: 10),
                                   GestureDetector(
                                     onTap: () {
                                       // Add your LinkedIn URL here
@@ -208,11 +208,11 @@ class AboutScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 children: [
-                                  Icon(Icons.code, color: Colors.black),
-                                  SizedBox(width: 10),
+                                  const   Icon(Icons.code, color: Colors.black),
+                                  const  SizedBox(width: 10),
                                   GestureDetector(
                                     onTap: () {
                                       // Add your GitHub URL here
