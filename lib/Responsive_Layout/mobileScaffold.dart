@@ -1,6 +1,7 @@
 import 'package:Ali.dev/Screens/about.dart';
 import 'package:Ali.dev/Screens/contact_screen.dart';
 import 'package:Ali.dev/Screens/project_Screen.dart';
+import 'package:Ali.dev/utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Screens/Skills_screen.dart';
@@ -58,6 +59,18 @@ class _MobileScaffoldState extends State<MobileScaffold>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Send Message',
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Contact_screen()));
+        },
+        backgroundColor: Colors.amber.shade800,
+        child: Icon(
+          Icons.message,
+          color: Colors.black,
+        ),
+      ),
       backgroundColor: Colors.grey,
       body: PageView(
         controller: _pageController,
@@ -66,12 +79,7 @@ class _MobileScaffoldState extends State<MobileScaffold>
             _selectedIndex = index;
           });
         },
-        children: [
-          HomeScreen(),
-          AboutScreen(),
-          ProjectsScreen(),
-          Contact_screen(),
-        ],
+        children: [HomeScreen(), AboutScreen(), ProjectsScreen(), SkillsPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -89,8 +97,8 @@ class _MobileScaffoldState extends State<MobileScaffold>
             label: 'Projects',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contact_mail),
-            label: 'Contact',
+            icon: Icon(Icons.code_outlined),
+            label: 'Skills',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -108,16 +116,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 39, 36, 36),
-        leading: Container(
-          margin: EdgeInsets.only(left: 20),
-          child: CircleAvatar(
-            radius: 40,
-            backgroundImage: AssetImage('assets/images/logo.png'),
-          ),
-        ),
-      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -190,6 +188,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              AwesomeIconsRow(),
               Container(
                 margin: EdgeInsets.all(20),
                 child: Row(
@@ -207,28 +206,33 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ProjectCard(
+                    ProjectCard_s(
                         title: 'E-commerce App',
                         description:
                             'Created a complete Flutter e-commerce app with user authentication, product browsing, and secure payments.',
                         image: 'assets/images/ecommerce.png'),
-                    ProjectCard(
+                    ProjectCard_s(
                         title: 'Social Media App',
                         description:
                             'Built a social media application with Flutter,allowing users to create profiles,interact with others in real-time.',
                         image: 'assets/images/social.png'),
-                    ProjectCard(
+                    ProjectCard_s(
                         title: 'Weather App',
                         description:
                             'Developed Flutter weather utilizing the OpenWeatherMap API, showcasing current conditions and forecasts for multiple cities.',
                         image: 'assets/images/weather.png'),
-                    ProjectCard(
+                    ProjectCard_s(
                         title: 'Todo App',
                         description:
                             'A task management app built with Flutter, allowing users to create, edit, and track their tasks with a simple and intuitive interface.',
-                        image: 'assets/images/todo.png'),
+                        image: 'assets/images/toDo.png'),
                     OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProjectsScreen()));
+                        },
                         child: Text(
                           "View All",
                           style: TextStyle(color: Colors.amber.shade800),
@@ -241,132 +245,6 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String image;
-
-  ProjectCard({
-    required this.title,
-    required this.description,
-    required this.image,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 350,
-      width: 300,
-      child: Card(
-        color: Colors.grey.shade900,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 5,
-        margin: EdgeInsets.all(10),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(image)),
-              SizedBox(height: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.amber.shade800,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                description,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[600],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  OutlinedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Code",
-                        style: TextStyle(color: Colors.amber.shade800),
-                      ))
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProjectCar extends StatefulWidget {
-  final String title;
-  final String description;
-  final String imageUrl;
-
-  const ProjectCar({
-    Key? key,
-    required this.title,
-    required this.description,
-    required this.imageUrl,
-  }) : super(key: key);
-
-  @override
-  State<ProjectCar> createState() => _ProjectCarState();
-}
-
-class _ProjectCarState extends State<ProjectCar> {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Colors.amber.shade500,
-      child: SizedBox(
-        width: 200,
-        height: 400,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(widget.imageUrl, fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(widget.description),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle view details
-                },
-                style: ElevatedButton.styleFrom(),
-                child: Text(
-                  'View Details',
-                  style: TextStyle(color: Colors.amber.shade700),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );

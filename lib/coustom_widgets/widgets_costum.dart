@@ -5,25 +5,23 @@ class Custom_container extends StatelessWidget {
   final String m_name;
   final String user_Name;
 
-
-  const Custom_container({super.key,
+  const Custom_container({
+    super.key,
     this.imgage,
     required this.m_name,
     required this.user_Name,
-
-     });
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        children: [
-
-        ],
+        children: [],
       ),
     );
   }
 }
+
 class CustomTextField extends StatelessWidget {
   final String text1;
   final TextEditingController controller;
@@ -31,50 +29,40 @@ class CustomTextField extends StatelessWidget {
   final bool expand;
   final double? height;
 
-
-  const CustomTextField({super.key,
-    required this.text1,
-     this.maxLines,
-    required this.expand,
-    required this.height, required this.controller
-  });
+  const CustomTextField(
+      {super.key,
+      required this.text1,
+      this.maxLines,
+      required this.expand,
+      required this.height,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-margin: EdgeInsets.all(5),
+        margin: EdgeInsets.all(5),
         width: 300,
         height: height,
-
         child: TextField(
           controller: controller,
           maxLines: maxLines,
           expands: expand,
           decoration: InputDecoration(
-
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                    color: Colors.amber,
-                    width: 2
-                )
-            ),
+                borderSide: BorderSide(color: Colors.amber.shade800, width: 2)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                    color: Colors.amber,
-                    width: 2
-                )
+                borderSide: BorderSide(color: Colors.amber.shade800, width: 2)),
+            label: Text(
+              "$text1",
+              style: TextStyle(color: Colors.amber.shade800),
             ),
-
-            label: Text("$text1"),
           ),
-
-        )
-
-    );
+        ));
   }
 }
+
 /////////////////////////////////////////////////
 class SkillProgress extends StatelessWidget {
   final String skill;
@@ -94,7 +82,7 @@ class SkillProgress extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: Colors.amber.shade800,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -121,7 +109,7 @@ class SkillProgress extends StatelessWidget {
           LinearProgressIndicator(
             value: percentage,
             backgroundColor: Colors.amber[100],
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.amber[800]!),
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.grey[800]!),
           ),
           SizedBox(height: 8),
           Text(

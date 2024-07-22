@@ -4,6 +4,7 @@ import 'package:Ali.dev/Screens/Skills_screen.dart';
 import 'package:Ali.dev/Screens/about.dart';
 import 'package:Ali.dev/Screens/contact_screen.dart';
 import 'package:Ali.dev/Screens/project_Screen.dart';
+import 'package:Ali.dev/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -21,6 +22,18 @@ class _TableScaffoldState extends State<TableScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Send Message',
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Contact_screen()));
+        },
+        backgroundColor: Colors.amber.shade800,
+        child: Icon(
+          Icons.message,
+          color: Colors.black,
+        ),
+      ),
       backgroundColor: Colors.grey.shade700,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade800,
@@ -152,6 +165,7 @@ class _TableScaffoldState extends State<TableScaffold> {
                   ],
                 ),
               ),
+              AwesomeIconsRow(),
               Container(
                 margin: EdgeInsets.all(20),
                 child: Row(
@@ -169,26 +183,26 @@ class _TableScaffoldState extends State<TableScaffold> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ProjectCard(
+                    ProjectCard_s(
                         title: 'E-commerce App',
                         description:
                             'Created a complete Flutter e-commerce app with user authentication, product browsing, and secure payments.',
-                        imageUrl: 'assets/images/ecommerce.png'),
-                    ProjectCard(
+                        image: 'assets/images/ecommerce.png'),
+                    ProjectCard_s(
                         title: 'Social Media App',
                         description:
                             'Built a social media application with Flutter,allowing users to create profiles,interact with others in real-time.',
-                        imageUrl: 'assets/images/social.png'),
-                    ProjectCard(
+                        image: 'assets/images/social.png'),
+                    ProjectCard_s(
                         title: 'Weather App',
                         description:
                             'Developed Flutter weather utilizing the OpenWeatherMap API, showcasing current conditions and forecasts for multiple cities.',
-                        imageUrl: 'assets/images/weather.png'),
-                    ProjectCard(
+                        image: 'assets/images/weather.png'),
+                    ProjectCard_s(
                         title: 'Todo App',
                         description:
                             'A task management app built with Flutter, allowing users to create, edit, and track their tasks with a simple and intuitive interface.',
-                        imageUrl: 'assets/images/todo.png'),
+                        image: 'assets/images/toDo.png'),
                     OutlinedButton(
                         onPressed: () {},
                         child: Text(
@@ -199,80 +213,8 @@ class _TableScaffoldState extends State<TableScaffold> {
                 ),
               ),
               SizedBox(
-                height: 100,
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String imageUrl;
-
-  ProjectCard({
-    required this.title,
-    required this.description,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 350,
-      width: 300,
-      child: Card(
-        color: Colors.grey.shade900,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 5,
-        margin: EdgeInsets.all(10),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  imageUrl,
-                  height: 100,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
+                height: 50,
               ),
-              SizedBox(height: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  color: Colors.amber.shade800,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                description,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[600],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  OutlinedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Code",
-                        style: TextStyle(color: Colors.amber.shade800),
-                      ))
-                ],
-              )
             ],
           ),
         ),
