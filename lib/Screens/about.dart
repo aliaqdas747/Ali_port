@@ -12,20 +12,26 @@ class AboutScreen extends StatelessWidget {
     final textTheme = TextThemeCustom();
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.amber.shade700),
+        iconTheme: IconThemeData(
+          color: Colors.green,
+        ),
         centerTitle: true,
         backgroundColor: Colors.grey.shade900,
         title: Text(
           "About",
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: Colors.amber.shade800),
+          style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                color: Colors.green,
+              ),
         ),
       ),
       backgroundColor: Colors.grey.shade800,
       body: Container(
-        decoration: const BoxDecoration(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg3.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -58,8 +64,9 @@ class AboutScreen extends StatelessWidget {
                           Text(
                             'ALI AQDAS',
                             style: textTheme.headerStyle!.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.amber.shade800),
+                              fontWeight: FontWeight.w500,
+                              color: Colors.green,
+                            ),
                           ),
                           Text(
                             "I am a dedicated and passionate app developer specializing in Flutter and Dart. With a solid foundation in app development from my recent diploma, I am excited to bring my skills and creativity to new projects. I am driven by a love for coding and a commitment to continuous learning and improvement.",
@@ -93,8 +100,9 @@ class AboutScreen extends StatelessWidget {
                           Text(
                             'Skills',
                             style: textTheme.headerStyle!.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.amber.shade800),
+                              fontWeight: FontWeight.w500,
+                              color: Colors.green,
+                            ),
                           ),
                           Text(
                             "Programming Languages: Dart, JavaScript Frameworks & Tools: Flutter, Git, Firebase Skills: UI/UX Design, Problem Solving, Team Collaboration",
@@ -141,9 +149,10 @@ class AboutScreen extends StatelessWidget {
                           Text(
                             'Education',
                             style: textTheme.headerStyle!.copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 45,
-                                color: Colors.amber.shade800),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 45,
+                              color: Colors.green,
+                            ),
                           ),
                           Text(
                             'Intermediate in Computer Science (ICS)\nRead Foundation collage\n2021 - 2023\nCompleted my ICS with a strong focus on software development and programming fundamentals.Courses included Computer Science, Mathematics, and Physics.',
@@ -182,8 +191,9 @@ class AboutScreen extends StatelessWidget {
                           Text(
                             'Hobbies & Interests',
                             style: textTheme.headerStyle!.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.amber.shade800),
+                              fontWeight: FontWeight.w500,
+                              color: Colors.green,
+                            ),
                           ),
                           Text(
                             "Programming:\n Enjoy coding and building new projects.\nReading: Passionate about reading tech blogs and staying updated with the latest in technology.\nGaming:"

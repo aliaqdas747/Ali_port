@@ -10,11 +10,15 @@ class SkillsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.amber.shade700),
+        iconTheme: IconThemeData(
+          color: Colors.green,
+        ),
         backgroundColor: Colors.grey.shade800,
         title: const Text(
           'Flutter Skills Set',
-          style: TextStyle(color: Colors.amber),
+          style: TextStyle(
+            color: Colors.green,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -56,7 +60,7 @@ class SkillsPage extends StatelessWidget {
                   ),
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.amber.shade700,
+                      color: Colors.green,
                       borderRadius: BorderRadius.circular(50)),
                 ),
                 Column(
@@ -81,7 +85,7 @@ class SkillsPage extends StatelessWidget {
                       ),
                       margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.amber.shade800,
+                          color: Colors.green,
                           borderRadius: BorderRadius.circular(50)),
                     ),
                     Column(
@@ -101,7 +105,9 @@ class SkillsPage extends StatelessWidget {
                                   child: Text(
                                 "Ecommerce App",
                                 style: TextStyle(
-                                    fontSize: 30, color: Colors.amber.shade800),
+                                  fontSize: 30,
+                                  color: Colors.green,
+                                ),
                               ))),
                           margin: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -109,7 +115,7 @@ class SkillsPage extends StatelessWidget {
                                   image:
                                       AssetImage('assets/images/ecommerce.png'),
                                   fit: BoxFit.cover),
-                              color: Colors.amber.shade800,
+                              color: Colors.green,
                               borderRadius: BorderRadius.circular(10)),
                         ),
                         Container(
@@ -129,7 +135,7 @@ class SkillsPage extends StatelessWidget {
                                   image:
                                       AssetImage('assets/images/weather.png'),
                                   fit: BoxFit.cover),
-                              color: Colors.amber.shade900,
+                              color: Colors.green,
                               borderRadius: BorderRadius.circular(10)),
                         ),
                       ],

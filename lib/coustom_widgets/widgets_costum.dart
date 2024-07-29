@@ -50,13 +50,15 @@ class CustomTextField extends StatelessWidget {
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.amber.shade800, width: 2)),
+                borderSide: BorderSide(color: Colors.green, width: 2)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.amber.shade800, width: 2)),
+                borderSide: BorderSide(color: Colors.green, width: 2)),
             label: Text(
               "$text1",
-              style: TextStyle(color: Colors.amber.shade800),
+              style: TextStyle(
+                color: Colors.green,
+              ),
             ),
           ),
         ));
@@ -82,7 +84,7 @@ class SkillProgress extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.amber.shade800,
+        color: Colors.green,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(

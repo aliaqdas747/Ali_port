@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:Ali.dev/Screens/project_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -87,56 +89,71 @@ class ProjectCard_s extends StatefulWidget {
 class _ProjectCard_sState extends State<ProjectCard_s> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
-      color: Colors.amber.shade800,
-      child: SizedBox(
-        height: 400,
-        width: 300,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-              widget.image,
-              height: 200,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(widget.description),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ProjectsScreen()));
-                    },
-                    style: ElevatedButton.styleFrom(),
-                    child: Text(
-                      'View Code',
-                      style: TextStyle(color: Colors.amber.shade700),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+    return Container(
+        margin: EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.green),
+
+          color: Colors.white.withOpacity(0.0), // Very low opacity
+          borderRadius: BorderRadius.circular(15.0),
         ),
-      ),
-    );
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              child: SizedBox(
+                height: 400,
+                width: 300,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      widget.image,
+                      height: 200,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.title,
+                        style: const TextStyle(
+                            color: Colors.green,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.description,
+                        style: TextStyle(color: Colors.green),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProjectsScreen()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green),
+                            child: Text(
+                              'View Code',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )));
   }
 }
 
@@ -156,28 +173,27 @@ class _AwesomeIconsRowState extends State<AwesomeIconsRow> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {}, // Add your tap handler here
-            child: Tooltip(
-              message: 'Facebook',
-              child: Icon(
-                FontAwesomeIcons.facebook,
-                color: Colors.black,
-                size: 24,
+              onTap: () {}, // Add your tap handler here
+              child: Tooltip(
+                message: 'Facebook',
+                child: Icon(
+                  FontAwesomeIcons.facebook,
+                  color: Colors.green,
+                  size: 24,
+                ),
               ),
-            ),
-            hoverColor: Colors.amber.shade700,
-          ),
+              hoverColor: Colors.green),
           InkWell(
             onTap: () {}, // Add your tap handler here
             child: Tooltip(
               message: 'Instagram',
               child: Icon(
                 FontAwesomeIcons.instagram,
-                color: Colors.black,
+                color: Colors.green,
                 size: 24,
               ),
             ),
-            hoverColor: Colors.amber.shade700,
+            hoverColor: Colors.green,
           ),
           InkWell(
             onTap: () {}, // Add your tap handler here
@@ -185,11 +201,11 @@ class _AwesomeIconsRowState extends State<AwesomeIconsRow> {
               message: 'Github',
               child: Icon(
                 FontAwesomeIcons.github,
-                color: Colors.black,
+                color: Colors.green,
                 size: 24,
               ),
             ),
-            hoverColor: Colors.amber.shade700,
+            hoverColor: Colors.green,
           ),
           InkWell(
             onTap: () {}, // Add your tap handler here
@@ -197,11 +213,11 @@ class _AwesomeIconsRowState extends State<AwesomeIconsRow> {
               message: 'Linkedin',
               child: Icon(
                 FontAwesomeIcons.linkedin,
-                color: Colors.black,
+                color: Colors.green,
                 size: 24,
               ),
             ),
-            hoverColor: Colors.amber.shade700,
+            hoverColor: Colors.green,
           ),
         ],
       ),

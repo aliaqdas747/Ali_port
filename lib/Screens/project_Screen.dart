@@ -1,58 +1,146 @@
-import 'package:Ali.dev/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class ProjectsScreen extends StatelessWidget {
+class ProjectsScreen extends StatefulWidget {
+  @override
+  _ProjectScreenState createState() => _ProjectScreenState();
+}
+
+class _ProjectScreenState extends State<ProjectsScreen> {
+  List<Project> _projects = [
+    Project(
+      title: 'Ecommerce App',
+      description:
+          'A full-fledged ecommerce app with payment gateway integration',
+      technologies: ['Flutter', 'Dart', 'Firebase'],
+      imageUrl: 'assets/images/ecommerce.png',
+      githubUrl: 'https://github.com/ecommerce-app',
+      liveUrl: 'https://ecommerce-app.com',
+    ),
+    Project(
+      title: 'Weather App',
+      description: 'A weather app that shows current weather and forecast',
+      technologies: ['Flutter', 'Dart', 'OpenWeatherMap'],
+      imageUrl: 'assets/images/weather.png',
+      githubUrl: 'https://github.com/weather-app',
+      liveUrl: 'https://weather-app.com',
+    ),
+    Project(
+      title: 'To-Do List App',
+      description: 'A simple to-do list app with CRUD operations',
+      technologies: ['Flutter', 'Dart', 'Hive'],
+      imageUrl: 'assets/images/toDo.png',
+      githubUrl: 'https://github.com/todo-list-app',
+      liveUrl: 'https://todo-list-app.com',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.amber.shade700),
-        centerTitle: true,
-        backgroundColor: Colors.grey.shade900,
-        title: Text(
-          "Project Showcase",
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.amber),
+        title: Text('Projects'),
+        backgroundColor: Colors.grey.shade700,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16),
+        child: ListView.builder(
+          itemCount: _projects.length,
+          itemBuilder: (context, index) {
+            return ProjectCard(project: _projects[index]);
+          },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ProjectCard(
-                  title: 'E-commerce App',
-                  description:
-                      'Created a complete Flutter e-commerce app with user authentication, product browsing, and secure payments.',
-                  image: 'assets/images/ecommerce.png'),
-              ProjectCard(
-                  title: 'Social Media App',
-                  description:
-                      'Built a social media application with Flutter,allowing users to create profiles,interact with others in real-time.',
-                  image: 'assets/images/social.png'),
-              ProjectCard(
-                  title: 'Weather App',
-                  description:
-                      'Developed Flutter weather utilizing the OpenWeatherMap API, showcasing current conditions and forecasts for multiple cities.',
-                  image: 'assets/images/weather.png'),
-              ProjectCard(
-                  title: 'Todo App',
-                  description:
-                      'A task management app built with Flutter, allowing users to create, edit, and track their tasks with a simple and intuitive interface.',
-                  image: 'assets/images/toDo.png'),
-              OutlinedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "View All",
-                    style: TextStyle(color: Colors.amber.shade800),
-                  ))
-            ],
-          ),
+    );
+  }
+}
+
+class Project {
+  final String title;
+  final String description;
+  final List<String> technologies;
+  final String imageUrl;
+  final String githubUrl;
+  final String liveUrl;
+
+  Project({
+    required this.title,
+    required this.description,
+    required this.technologies,
+    required this.imageUrl,
+    required this.githubUrl,
+    required this.liveUrl,
+  });
+}
+
+class ProjectCard extends StatelessWidget {
+  final Project project;
+
+  ProjectCard({required this.project});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.grey.shade700,
+      elevation: 4,
+      margin: EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(project.imageUrl),
+            ),
+            SizedBox(height: 16),
+            Text(
+              project.title,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              project.description,
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 16),
+            Wrap(
+              children: project.technologies.map((tech) {
+                return Chip(
+                  label: Text(tech),
+                  backgroundColor: Colors.amber.shade700,
+                  labelStyle: TextStyle(color: Colors.white),
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    launch(project.githubUrl);
+                  },
+                  child: Text('GitHub'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber.shade700,
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    launch(project.liveUrl);
+                  },
+                  child: Text('Live Demo'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber.shade700,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

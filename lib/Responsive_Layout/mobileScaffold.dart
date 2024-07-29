@@ -65,7 +65,7 @@ class _MobileScaffoldState extends State<MobileScaffold>
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => Contact_screen()));
         },
-        backgroundColor: Colors.amber.shade800,
+        backgroundColor: Colors.green,
         child: Icon(
           Icons.message,
           color: Colors.black,
@@ -102,9 +102,9 @@ class _MobileScaffoldState extends State<MobileScaffold>
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber.shade800,
-        backgroundColor: Colors.amber.shade600,
-        unselectedItemColor: Colors.amber.shade500,
+        selectedItemColor: Colors.green,
+        backgroundColor: Colors.green,
+        unselectedItemColor: Colors.green,
         onTap: _onItemTapped,
       ),
     );
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(10),
                 child: const CircleAvatar(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: Colors.green,
                   radius: 100,
                   backgroundImage: AssetImage('assets/images/ai.png'),
                 ),
@@ -139,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                   child: Text(
                 'Flutter App Developer',
                 style: TextStyle(
-                    color: Colors.amber.shade800,
+                    color: Colors.green,
                     fontSize: 30,
                     fontWeight: FontWeight.w700,
                     fontFamily: 'fonts'),
@@ -235,7 +235,9 @@ class HomeScreen extends StatelessWidget {
                         },
                         child: Text(
                           "View All",
-                          style: TextStyle(color: Colors.amber.shade800),
+                          style: TextStyle(
+                            color: Colors.green,
+                          ),
                         ))
                   ],
                 ),
