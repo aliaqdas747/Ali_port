@@ -116,8 +116,9 @@ class _ProjectCard_sState extends State<ProjectCard_s> {
                       child: Text(
                         widget.title,
                         style: const TextStyle(
+                            fontFamily: 'fonts',
                             color: Colors.green,
-                            fontSize: 16,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold),
                       ),
                     ),

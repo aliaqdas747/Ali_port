@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:Ali.dev/Screens/ImagePage.dart';
+import 'package:Ali.dev/coustom_widgets/Custom_appbar.dart';
 import 'package:Ali.dev/utils.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,87 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 //appbar
-                Container(
-                  margin: EdgeInsets.all(10),
-                  width: double.infinity,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green),
-
-                    color: Colors.white.withOpacity(0.0), // Very low opacity
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        color: Colors.transparent, // Transparent background
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => AboutScreen()));
-                              },
-                              child: Text(
-                                '   About',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 50,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ProjectsScreen()));
-                              },
-                              child: Text(
-                                '   Projects',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 50,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SkillsPage()));
-                              },
-                              child: Text(
-                                '   Skills',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 100,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                Custom_appbar(),
                 SizedBox(
                   height: 50,
                 ),

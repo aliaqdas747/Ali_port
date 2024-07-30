@@ -52,7 +52,7 @@ class _Contact_screenState extends State<Contact_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.amber.shade700),
+        iconTheme: IconThemeData(color: Colors.green),
         centerTitle: true,
         backgroundColor: Colors.grey.shade900,
         title: Text(
@@ -60,7 +60,7 @@ class _Contact_screenState extends State<Contact_screen> {
           style: Theme.of(context)
               .textTheme
               .headlineMedium!
-              .copyWith(color: Colors.amber.shade800),
+              .copyWith(color: Colors.green),
         ),
       ),
       backgroundColor: Colors.grey.shade800,
@@ -156,7 +156,7 @@ class _Contact_screenState extends State<Contact_screen> {
                             width: 200,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: Colors.amber.shade800,
+                                color: Colors.green,
                                 boxShadow: [
                                   BoxShadow(
                                       color: submit_Color,
@@ -253,7 +253,7 @@ class _Contact_screenState extends State<Contact_screen> {
                   ),
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.amber.shade800,
+                      color: Colors.green,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ],

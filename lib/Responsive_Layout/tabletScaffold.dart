@@ -5,6 +5,7 @@ import 'package:Ali.dev/Screens/Skills_screen.dart';
 import 'package:Ali.dev/Screens/about.dart';
 import 'package:Ali.dev/Screens/contact_screen.dart';
 import 'package:Ali.dev/Screens/project_Screen.dart';
+import 'package:Ali.dev/coustom_widgets/Custom_appbar.dart';
 import 'package:Ali.dev/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,87 +50,7 @@ class _TableScaffoldState extends State<TableScaffold> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  width: double.infinity,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green),
-
-                    color: Colors.white.withOpacity(0.0), // Very low opacity
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        color: Colors.transparent, // Transparent background
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => AboutScreen()));
-                              },
-                              child: Text(
-                                '   About',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 50,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ProjectsScreen()));
-                              },
-                              child: Text(
-                                '   Projects',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 50,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SkillsPage()));
-                              },
-                              child: Text(
-                                '   Skills',
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontFamily: 'fonts'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 100,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                Custom_appbar(),
                 Container(
                   margin: const EdgeInsets.all(10),
                   child: const CircleAvatar(
